@@ -1,0 +1,17 @@
+name: linker
+description: A flutter plugin to link with other app or system function.
+version: 0.0.1
+author: JZoom <jzoom8112@gmail.com>
+homepage: https://github.com/best-flutter/linker
+
+environment:
+  sdk: ">=2.0.0-dev.50.0 <3.0.0"
+
+dependencies:
+  flutter:
+    sdk: flutter
+
+flutter:
+  plugin:
+    androidPackage: com.github.jzoom.linker
+    pluginClass: LinkerPlugin

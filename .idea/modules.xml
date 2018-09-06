@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/linker.iml" filepath="$PROJECT_DIR$/linker.iml" />
+      <module fileurl="file://$PROJECT_DIR$/linker_android.iml" filepath="$PROJECT_DIR$/linker_android.iml" />
+    </modules>
+  </component>
+</project>
