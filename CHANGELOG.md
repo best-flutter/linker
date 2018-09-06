@@ -1,3 +1,5 @@
 ## 0.0.1
-
-* TODO: Describe initial release.
+    * ios canOpenURL
+    * ios openURL
+    * android startActivityForResult
+    * android startActivity
