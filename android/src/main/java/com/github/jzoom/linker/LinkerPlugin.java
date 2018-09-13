@@ -3,6 +3,7 @@ package com.github.jzoom.linker;
 import android.app.Activity;
 import android.content.Intent;
 import android.net.Uri;
+import android.os.Build;
 import android.os.Bundle;
 import android.provider.Settings;
 
@@ -155,9 +156,26 @@ public class LinkerPlugin implements MethodCallHandler, PluginRegistry.ActivityR
         result.error(e.getClass().getName(),e.getMessage(),"Cannot start activity");
       }
 
-    }else {
+    }else if("openSetting".equals(method)){
+      Intent intent = new Intent();
+      intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+      if (Build.VERSION.SDK_INT >= 9) {
+        intent.setAction("android.settings.APPLICATION_DETAILS_SETTINGS");
+        intent.setData(Uri.fromParts("package", getPackageName(), null));
+      } else if (Build.VERSION.SDK_INT <= 8) {
+        intent.setAction(Intent.ACTION_VIEW);
+        intent.setClassName("com.android.settings","com.android.settings.InstalledAppDetails");
+        intent.putExtra("com.android.settings.ApplicationPkgName", getPackageName());
+      }
+      activity.startActivity(intent);
+      result.success(true);
+    }  else {
       result.notImplemented();
     }
+  }
+
+  private String getPackageName() {
+    return activity.getPackageName();
   }
 
 

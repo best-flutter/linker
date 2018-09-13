@@ -132,19 +132,14 @@ class Linker {
   }
 
   static Future<bool> openSetting() async{
-    if(Platform.isAndroid){
-      return startActivity(new Intent.fromAction(Intent.ACTION_SETTINGS));
-    }else{
-      var value = await _channel.invokeMethod("openSetting");
-      return value as bool;
-    }
+    var value = await _channel.invokeMethod("openSetting");
+    return value as bool;
   }
   static Future<bool> openNetworkSetting() async{
     if(Platform.isAndroid){
       return startActivity(new Intent.fromAction(Intent.ACTION_WIRELESS_SETTINGS));
     }else{
-      var value = await _channel.invokeMethod("openSetting");
-      return value as bool;
+      return openSetting();
     }
   }
 }
