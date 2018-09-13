@@ -14,6 +14,12 @@
       <excludeFolder url="file://$MODULE_DIR$/example/ios/.symlinks/plugins/linker/.dart_tool" />
       <excludeFolder url="file://$MODULE_DIR$/example/ios/.symlinks/plugins/linker/.pub" />
       <excludeFolder url="file://$MODULE_DIR$/example/ios/.symlinks/plugins/linker/build" />
+      <excludeFolder url="file://$MODULE_DIR$/example/ios/.symlinks/plugins/linker/example/.dart_tool" />
+      <excludeFolder url="file://$MODULE_DIR$/example/ios/.symlinks/plugins/linker/example/.pub" />
+      <excludeFolder url="file://$MODULE_DIR$/example/ios/.symlinks/plugins/linker/example/build" />
+      <excludeFolder url="file://$MODULE_DIR$/example/ios/.symlinks/plugins/linker/example/build/app/intermediates/assets/debug/flutter_assets/packages" />
+      <excludeFolder url="file://$MODULE_DIR$/example/ios/.symlinks/plugins/linker/example/build/app/intermediates/flutter/debug/flutter_assets/packages" />
+      <excludeFolder url="file://$MODULE_DIR$/example/ios/.symlinks/plugins/linker/example/ios/Flutter/flutter_assets/packages" />
       <excludeFolder url="file://$MODULE_DIR$/example/ios/DerivedData/Runner/Build/Products/Debug-iphonesimulator/Runner.app/flutter_assets/packages" />
       <excludeFolder url="file://$MODULE_DIR$/example/ios/Flutter/flutter_assets/packages" />
     </content>

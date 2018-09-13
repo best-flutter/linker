@@ -113,6 +113,15 @@
       
       BOOL value = [[UIApplication sharedApplication]canOpenURL:[NSURL URLWithString:call.arguments]];
       result(@(value));
+  }else if([@"openSetting" isEqualToString:method]){
+      NSURL * url = [NSURL URLWithString:UIApplicationOpenSettingsURLString];
+      if([[UIApplication sharedApplication] canOpenURL:url]) {
+          NSURL*url =[NSURL URLWithString:UIApplicationOpenSettingsURLString];
+         BOOL value =  [[UIApplication sharedApplication] openURL:url];
+          result(@(value));
+      }else{
+          result(@(NO));
+      }
   }  else {
     result(FlutterMethodNotImplemented);
   }

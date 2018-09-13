@@ -40,14 +40,21 @@ class AndroidExample extends StatelessWidget {
           new Button(
               onPressed: () async {
                 try {
-                  ActivityResult result = await Linker.startActivityForResult(
-                      new Intent.fromAction("android.settings.SETTINGS"), 0);
-                  print(result);
+                  await Linker.openSetting();
                 } on PlatformException catch (e) {
                   print("Open failed $e");
                 }
               },
               label: "Open Settings"),
+          new Button(
+              onPressed: () async {
+                try {
+                  await Linker.openNetworkSetting();
+                } on PlatformException catch (e) {
+                  print("Open failed $e");
+                }
+              },
+              label: "Open Network settings"),
           new Button(
               onPressed: () async {
                 try {
@@ -74,28 +81,24 @@ class IosExample extends StatelessWidget {
       child: new Column(
         mainAxisSize: MainAxisSize.min,
         children: <Widget>[
-
           new Button(
               onPressed: () async {
                 try {
-                 await Linker.openURL("weixin://");
+                  await Linker.openURL("weixin://");
                 } on PlatformException catch (e) {
                   print("Open failed $e");
                 }
               },
               label: "Open Wechat"),
-
           new Button(
               onPressed: () async {
                 try {
-                  await Linker.openURL("App-Prefs:root");
+                  await Linker.openSetting();
                 } on PlatformException catch (e) {
                   print("Open failed $e");
                 }
               },
               label: "Open Settings"),
-
-
           new Button(
               onPressed: () async {
                 try {
@@ -105,8 +108,6 @@ class IosExample extends StatelessWidget {
                 }
               },
               label: "Call 10086"),
-
-
         ],
       ),
     );

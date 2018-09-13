@@ -6,6 +6,13 @@ import 'package:meta/meta.dart';
 
 @immutable
 class Intent {
+
+
+  static const String ACTION_WIRELESS_SETTINGS="android.settings.WIRELESS_SETTINGS";
+  static const String ACTION_SETTINGS="android.settings.SETTINGS";
+
+
+
   final String className;
   final String packageName;
   final String action;
@@ -88,7 +95,6 @@ class ActivityResult {
 class Linker {
   static const MethodChannel _channel = const MethodChannel('linker');
 
-
   /// IOS only
   static Future<bool> canOpenURL(String url) async {
     if (!Platform.isIOS)
@@ -96,7 +102,6 @@ class Linker {
     dynamic value = await _channel.invokeMethod("canOpenURL", url);
     return value as bool;
   }
-
 
   /// IOS only,
   static Future<bool> openURL(String url) async {
@@ -118,11 +123,28 @@ class Linker {
   }
 
   /// android only
-  static Future startActivity(Intent intent) async {
+  static Future<bool> startActivity(Intent intent) async {
     if (!Platform.isAndroid)
       throw new Exception("This method must be called in android");
     dynamic value =
         await _channel.invokeMethod("startActivity", intent.toMap());
-    return value;
+    return value as bool;
+  }
+
+  static Future<bool> openSetting() async{
+    if(Platform.isAndroid){
+      return startActivity(new Intent.fromAction(Intent.ACTION_SETTINGS));
+    }else{
+      var value = await _channel.invokeMethod("openSetting");
+      return value as bool;
+    }
+  }
+  static Future<bool> openNetworkSetting() async{
+    if(Platform.isAndroid){
+      return startActivity(new Intent.fromAction(Intent.ACTION_WIRELESS_SETTINGS));
+    }else{
+      var value = await _channel.invokeMethod("openSetting");
+      return value as bool;
+    }
   }
 }
