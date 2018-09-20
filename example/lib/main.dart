@@ -49,6 +49,25 @@ class AndroidExample extends StatelessWidget {
           new Button(
               onPressed: () async {
                 try {
+                  await Linker.startActivity(new Intent.fromAction(Intent.ACTION_VIEW,
+                      uri: Uri.parse("mqqwpa://im/chat?chat_type=wpa&uin=123456")));
+                } on PlatformException catch (e) {
+                  print("Open failed $e");
+                }
+              },
+              label: "Open QQ"),
+          new Button(
+              onPressed: () async {
+                try {
+                  await Linker.startActivity(new Intent.callApp( packageName:  "com.tencent.mm",className: "com.tencent.mm.ui.LauncherUI"));
+                } on PlatformException catch (e) {
+                  print("Open failed $e");
+                }
+              },
+              label: "Open Wechat"),
+          new Button(
+              onPressed: () async {
+                try {
                   await Linker.openNetworkSetting();
                 } on PlatformException catch (e) {
                   print("Open failed $e");

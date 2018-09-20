@@ -1,5 +1,6 @@
 package com.example.linkerexample;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.provider.Settings;
 
@@ -11,5 +12,6 @@ public class MainActivity extends FlutterActivity {
   protected void onCreate(Bundle savedInstanceState) {
     super.onCreate(savedInstanceState);
     GeneratedPluginRegistrant.registerWith(this);
+
   }
 }
