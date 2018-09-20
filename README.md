@@ -50,6 +50,29 @@ try {
 
 ```
 
+
+Open QQ
+
+```
+ try {
+      await Linker.startActivity(new Intent.fromAction(Intent.ACTION_VIEW,
+          uri: Uri.parse("mqqwpa://im/chat?chat_type=wpa&uin=123456")));
+    } on PlatformException catch (e) {
+      print("Open failed $e");
+    }
+```
+
+
+
+Open Wechat
+```
+try {
+  await Linker.startActivity(new Intent.callApp( packageName:  "com.tencent.mm",className: "com.tencent.mm.ui.LauncherUI"));
+} on PlatformException catch (e) {
+  print("Open failed $e");
+}
+```
+
 ### ios
 
 
