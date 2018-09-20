@@ -1,6 +1,6 @@
 name: linker
 description: A flutter plugin to link with other app or system function.
-version: 0.0.1
+version: 0.0.2
 author: JZoom <jzoom8112@gmail.com>
 homepage: https://github.com/best-flutter/linker
 
