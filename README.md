@@ -1,3 +1,6 @@
+
+
+
 # linker
 
 A flutter plugin to link with other app or system function.
@@ -8,7 +11,7 @@ add
 
 ```
 
-linker:
+linker: 0.0.2
 
 ```
 to your pubspec.yaml, and run `flutter packages get`
